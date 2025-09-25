@@ -11456,3 +11456,14 @@ Traceback (most recent call last):
 openai.APIConnectionError: Connection error.
 
 2025-06-27 17:19:11,337 [INFO] 127.0.0.1 - - [27/Jun/2025 17:19:11] "[35m[1mPOST /generate_meal_plan HTTP/1.1[0m" 500 -
+2025-09-25 07:47:24,940 [INFO] CSV loaded successfully.
+2025-09-25 07:47:25,130 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-25 07:47:25,132 [INFO] [33mPress CTRL+C to quit[0m
+2025-09-25 07:47:25,136 [INFO]  * Restarting with stat
+2025-09-25 07:47:28,936 [INFO] CSV loaded successfully.
+2025-09-25 07:47:28,979 [WARNING]  * Debugger is active!
+2025-09-25 07:47:29,373 [INFO]  * Debugger PIN: 461-893-414
+2025-09-25 07:52:18,224 [INFO] 127.0.0.1 - - [25/Sep/2025 07:52:18] "GET / HTTP/1.1" 200 -
+2025-09-25 07:52:18,429 [INFO] 127.0.0.1 - - [25/Sep/2025 07:52:18] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-09-25 07:52:19,104 [INFO] 127.0.0.1 - - [25/Sep/2025 07:52:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
