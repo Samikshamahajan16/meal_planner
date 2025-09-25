@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calorie Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-900 flex items-center justify-center py-12 px-4">
+
+  <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-xl w-full">
+    <h1 class="text-4xl font-bold text-center text-red-600 mb-6">Calorie Calculator</h1>
+
+    <form method="POST" class="space-y-4">
+      <div>
+        <label class="block font-semibold">Age</label>
+        <input type="number" name="age" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-red-400" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Gender</label>
+        <select name="gender" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-red-400">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-semibold">Height (cm)</label>
+        <input type="number" name="height" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-red-400" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Weight (kg)</label>
+        <input type="number" name="weight" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-red-400" required />
+      </div>
+      <div>
+        <label class="block font-semibold">Activity Level</label>
+        <select name="activity" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring focus:ring-red-400">
+          <option value="sedentary">Sedentary (little to no exercise)</option>
+          <option value="light">Light (1–3 days/week)</option>
+          <option value="moderate">Moderate (3–5 days/week)</option>
+          <option value="active">Active (6–7 days/week)</option>
+          <option value="very_active">Very Active (physical job or intense training)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition">
+        Calculate
+      </button>
+    </form>
+
+    {% if result %}
+    <div class="mt-8 bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded">
+      <h2 class="text-xl font-semibold mb-2">Your Results:</h2>
+      <p><strong>BMR (Basal Metabolic Rate):</strong> {{ result.bmr }} kcal/day</p>
+      <p><strong>TDEE (Total Daily Energy Expenditure):</strong> {{ result.tdee }} kcal/day</p>
+    </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>

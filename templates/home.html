@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mealy - Personalized Meal Planner</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-red-600 to-red-300 text-white py-24">
+  <div class="container mx-auto px-6 text-center">
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Welcome to Mealy</h1>
+    <p class="text-xl max-w-2xl mx-auto mb-8">Your AI-powered meal planner for healthy, personalized nutrition goals. Track calories, ask questions, and get meal suggestions tailored just for you.</p>
+    <div class="space-x-4">
+      <a href="{{ url_for('calorie_calculator') }}" class="inline-block bg-white text-red-600 font-bold py-3 px-6 rounded-lg shadow hover:bg-gray-100 transition">Calorie Requirement Calculator</a>
+      <a href="{{ url_for('index') }}" class="inline-block bg-yellow-300 text-red-900 font-bold py-3 px-6 rounded-lg shadow hover:bg-yellow-400 transition">🍽️ Generate My Meal Plan</a>
+    </div>
+  </div>
+</section>
+
+
+     <!-- Features Section -->
+<section class="py-20 bg-[#FFF7ED] text-[#1F2937]">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold">Why Choose Mealy?</h2>
+      <p class="text-gray-700 mt-4">AI-driven features to elevate your daily meals</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- that 6 features dabbe -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">🍎 Smart Nutrition</h3>
+        <p class="text-gray-700">Get meal recommendations tailored to your body type, goals, and preferences using AI insights.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">📊 Calorie Tracker</h3>
+        <p class="text-gray-700">Track your calories and macronutrients efficiently with our user-friendly dashboard.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">💬 Chat with Mealy</h3>
+        <p class="text-gray-700">Ask questions, get tips, and resolve food confusion instantly through our AI chatbot.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">🌿 Mindful Eating</h3>
+        <p class="text-gray-700">Find out how slowing down and savoring meals improves digestion and satisfaction.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">🍽️ Healthy Habits</h3>
+        <p class="text-gray-700">Discover how small meal choices each day can transform your health and energy levels.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">🥗 The Nutrition Boost</h3>
+        <p class="text-gray-700">Explore expert tips on balancing macros, portion sizes, and creating sustainable meals</p>
+      </div>
+    </div>
+  </div>
+</section>
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" 
+     alt="Healthy meal planning table" 
+     class="rounded-lg shadow-lg mx-auto w-full max-w-xl mb-5" />
+
+
+
+<!-- CTA Section -->
+<section class="bg-red-600 text-white py-16">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to eat better?</h2>
+    <p class="mb-6">Let Mealy craft your perfect daily meal plan today.</p>
+    <a href="{{ url_for('index') }}" class="bg-white text-red-600 font-bold py-3 px-6 rounded-lg shadow hover:bg-gray-100 transition">Start Planning</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+  <div class="container mx-auto px-6 text-center">
+    <p>&copy; 2025 Mealy - Personalized Meal Planner</p>
+    <p class="text-sm text-gray-400 mt-2">Built with ❤️ using Flask and TailwindCSS</p>
+  </div>
+</footer>
+
+</body>
+</html>

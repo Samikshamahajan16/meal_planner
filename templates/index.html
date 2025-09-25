@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Meal Planner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .bg-overlay {
+      background-color: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(3px);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="bg-overlay p-6 rounded-lg shadow-lg">
+      <h2 class="text-4xl font-bold text-center text-red-600 py-4 mb-8">🥗 Mealy: The Daily Meal Planner</h2>
+
+      <form id="meal-form" class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow">
+        <div class="mb-6">
+          <label for="inputText" class="block text-lg font-semibold mb-2">Enter Your Requirements</label>
+          <textarea id="inputText" rows="4" placeholder="e.g. Give me 1800 kcal meal with 40% carbs, 30% protein..." class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-red-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition">
+          Generate Plan
+        </button>
+      </form>
+
+      <div id="result" class="max-w-2xl mx-auto mt-8"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('meal-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const inputText = document.getElementById('inputText').value;
+
+      document.getElementById('result').innerHTML = '<p class="text-center text-lg text-gray-700">⏳ Generating meal plan...</p>';
+
+      const response = await fetch('/generate_meal_plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: inputText })
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        document.getElementById('result').innerHTML = `
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            ${data.error}
+          </div>`;
+      } else {
+        const naturalHtml = `
+          <div class="bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded shadow mt-6">
+            <h4 class="text-xl font-semibold mb-2">🥗 Your Personalized Meal Plan</h4>
+            <p>${data.natural_text}</p>
+          </div>`;
+        document.getElementById('result').innerHTML = naturalHtml;
+      }
+    });
+  </script>
+
+</body>
+</html>
